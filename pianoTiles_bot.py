@@ -5,13 +5,11 @@ import keyboard
 import random
 import win32api, win32con
 
-## search mouse position and colors
-def displayMoydePosition():
-    pyautogui.displayMousePosition()
-
+######################## GAME URL ################################
 
 # https://www.agame.com/game/magic-piano-tiles
-################## Set Tiles Positions ###########################
+
+##################### Set Tiles Positions ########################
 Tiles_y = 330
 Tile_x1 = 620
 Tile_x2 = 705
@@ -26,15 +24,17 @@ def click(x,y):
     time.sleep(0.01) #This pauses the script for 0.01 seconds
     win32api.mouse_event(win32con.MOUSEEVENTF_LEFTUP,x,y,0,0)
 
-
-def main():
-
-    #start game with 's' key
+# only start the bot if press 's'
+def startBotLoop():
     while True:
         if(keyboard.is_pressed('s')): 
             break
         if(keyboard.is_pressed('q')): 
             break
+
+def main():
+
+    startBotLoop()
 
     while keyboard.is_pressed('q') == False:
         # pyautogui.pixel(x,y)[0] indicates the value R of the RGB pixel, the [1] is G and [2] is B
@@ -49,5 +49,4 @@ def main():
     
 
 main()
-# displayMoydePosition()
 

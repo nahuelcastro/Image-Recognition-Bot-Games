@@ -4,7 +4,7 @@ import time
 import keyboard
 import random
 import win32api, win32con
-
+import numpy as np
 ######################## GAME URL ################################
 
 # https://www.agame.com/game/magic-piano-tiles
@@ -17,6 +17,25 @@ Tile_x3 = 790
 Tile_x4 = 875
 ##################################################################
 
+def set_tiles_positions(region):
+    global Tiles_y, Tile_x1, Tile_x2, Tile_x3, Tile_x4
+    start_x, start_y = region[0], region[1]
+    width, height = region[2], region[3]
+    step_column_tile = width / 4
+    offset_column_tile = step_column_tile / 2
+
+    Tiles_y = int(start_y + height // 3 + 20)
+    Tile_x1 = int(start_x + offset_column_tile)
+    Tile_x2 = int(Tile_x1 + step_column_tile)
+    Tile_x3 = int(Tile_x2 + step_column_tile)
+    Tile_x4 = int(Tile_x3 + step_column_tile)
+
+def locate_region():
+    while True:
+        loc = pyautogui.locateOnScreen('locator/piano_tiles_locator.png', grayscale=True, confidence=0.6)
+        if loc != None:
+            set_tiles_positions(loc)
+            break
 
 def click(x,y):
     win32api.SetCursorPos((x,y))
@@ -35,9 +54,10 @@ def startBotLoop():
 def main():
 
     startBotLoop()
+    locate_region()
 
     while keyboard.is_pressed('q') == False:
-        # pyautogui.pixel(x,y)[0] indicates the value R of the RGB pixel, the [1] is G and [2] is B
+
         if pyautogui.pixel(Tile_x1, Tiles_y)[0] == 0:
             click(Tile_x1, Tiles_y)
         if pyautogui.pixel(Tile_x2, Tiles_y)[0] == 0:

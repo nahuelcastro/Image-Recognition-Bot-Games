@@ -9,12 +9,20 @@ import win32api, win32con
 
 # http://www.aimbooster.com
 
-######################## Set Vars ################################
-region_game = (678,332,600,420)
+########################  Vars ###################################
+region_game = (0,0,0,0) #(678,332,600,420)
 color_center = (255, 219, 195)
 pixel_step = 5
 ##################################################################
 
+def locate_region():
+    global region_game
+    while True:
+        loc = pyautogui.locateOnScreen('locator/aimbooster_locator.png', grayscale=True, confidence=0.7)
+        if loc:
+            # print(loc)
+            region_game = loc
+            break
 
 def click(x,y):
     win32api.SetCursorPos((x,y))
@@ -32,9 +40,10 @@ def startBotLoop():
             break
 
 def main():
+    global region_game
 
     startBotLoop()
-    time.sleep(0.5)
+    locate_region()
 
     while keyboard.is_pressed('q') == False:
         pic = pyautogui.screenshot(region=region_game)
@@ -49,4 +58,3 @@ def main():
 
 
 main()
-# displayMoydePosition()    

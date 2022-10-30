@@ -24,7 +24,8 @@ def set_tiles_positions(region):
     step_column_tile = width / 4
     offset_column_tile = step_column_tile / 2
 
-    Tiles_y = int(start_y + height // 3 + 20)
+    # Tiles_y = int(start_y + height // 3 + 20)
+    Tiles_y = 330
     Tile_x1 = int(start_x + offset_column_tile)
     Tile_x2 = int(Tile_x1 + step_column_tile)
     Tile_x3 = int(Tile_x2 + step_column_tile)

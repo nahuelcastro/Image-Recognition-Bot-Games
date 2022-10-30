@@ -23,7 +23,7 @@ Feel free to try it out and beat my score!
 
 The bot automatically locate the game in screen and identify the targets. It then clicks on the targets in the correct order. I don't have a score record with this bot because the bot works too well and doesn't miss any targets :)
 
-You can find the code in [aimbooster_bot.py](aimboosterBot.py) and try it with [this website](https://aimbooster.com/).
+You can find the code in [aimbooster_bot.py](aimbooster_bot.py) and try it with [this website](https://aimbooster.com/).
 
 ## Feel free to try it out and improve my code!
 

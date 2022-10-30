@@ -6,7 +6,7 @@
 
 ## Piano Tiles Bot:
 
-![Piano Tiles Bot Demo](Demos/pianoTilesBotDemo.gif)
+![Piano Tiles Bot Demo](Demos/PianoTilesBotDemo.gif)
 The bot automatically locate the game in screen and identify the tiles. It then clicks on the tiles in the correct order. My score record with this bot is _3335_ in [this website](https://www.agame.com/game/magic-piano-tiles).
 
 An improvement to this bot is to use a neural network to identify the tiles. This will make the bot more robust to different screen resolutions and different game versions, and also make it more efficient.
